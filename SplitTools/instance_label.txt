@@ -1,0 +1,38 @@
+id                       readable (ld) name                                              
+ 0                           Bird ( 0): animal--bird                                      
+ 1                  Ground Animal ( 1): animal--ground-animal                             
+ 2              Crosswalk - Plain ( 8): construction--flat--crosswalk-plain               
+ 3                         Person (19): human--person                                     
+ 4                      Bicyclist (20): human--rider--bicyclist                           
+ 5                   Motorcyclist (21): human--rider--motorcyclist                        
+ 6                    Other Rider (22): human--rider--other-rider                         
+ 7       Lane Marking - Crosswalk (23): marking--crosswalk-zebra                          
+ 8                         Banner (32): object--banner                                    
+ 9                          Bench (33): object--bench                                     
+10                      Bike Rack (34): object--bike-rack                                 
+11                      Billboard (35): object--billboard                                 
+12                    Catch Basin (36): object--catch-basin                               
+13                    CCTV Camera (37): object--cctv-camera                               
+14                   Fire Hydrant (38): object--fire-hydrant                              
+15                   Junction Box (39): object--junction-box                              
+16                        Mailbox (40): object--mailbox                                   
+17                        Manhole (41): object--manhole                                   
+18                    Phone Booth (42): object--phone-booth                               
+19                   Street Light (44): object--street-light                              
+20                           Pole (45): object--support--pole                             
+21             Traffic Sign Frame (46): object--support--traffic-sign-frame               
+22                   Utility Pole (47): object--support--utility-pole                     
+23                  Traffic Light (48): object--traffic-light                             
+24            Traffic Sign (Back) (49): object--traffic-sign--back                        
+25           Traffic Sign (Front) (50): object--traffic-sign--front                       
+26                      Trash Can (51): object--trash-can                                 
+27                        Bicycle (52): object--vehicle--bicycle                          
+28                           Boat (53): object--vehicle--boat                             
+29                            Bus (54): object--vehicle--bus                              
+30                            Car (55): object--vehicle--car                              
+31                        Caravan (56): object--vehicle--caravan                          
+32                     Motorcycle (57): object--vehicle--motorcycle                       
+33                  Other Vehicle (59): object--vehicle--other-vehicle                    
+34                        Trailer (60): object--vehicle--trailer                          
+35                          Truck (61): object--vehicle--truck                            
+36                   Wheeled Slow (62): object--vehicle--wheeled-slow                     
