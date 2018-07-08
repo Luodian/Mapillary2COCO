@@ -1,6 +1,10 @@
 # Transfer Mapillary Vistas Dataset to Coco format
 
-This python script can help you transfer your MVD to coco format and thus use currently prevalent frame to train your model.
+> This python script can help you transfer your MVD to coco format.
+
+Currently we are working at MVD & ECCV 2018 competition, one of our plans is to transfer the dataset to coco format. And use currently prevalent frame implementation(mask RCNN) to train our model.
+
+## Brief Introduction
 
 `SplitTools.py` finds `label x instances` tuple in each given `instance` image.
 
