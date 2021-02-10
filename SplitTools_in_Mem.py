@@ -274,9 +274,9 @@ def convert_class_id(annotation_filename):
     class_id = 0
     if "Bird" in annotation_filename:
         class_id = 1
-    elif "Ground_Animal" in annotation_filename:
+    elif "Ground Animal" in annotation_filename:
         class_id = 2
-    elif "Crosswalk_Plain" in annotation_filename:
+    elif "Crosswalk - Plain" in annotation_filename:
         class_id = 3
     elif "Person" in annotation_filename:
         class_id = 4
@@ -284,47 +284,47 @@ def convert_class_id(annotation_filename):
         class_id = 5
     elif "Motorcyclist" in annotation_filename:
         class_id = 6
-    elif "Other_Rider" in annotation_filename:
+    elif "Other Rider" in annotation_filename:
         class_id = 7
-    elif "Lane_Marking_-_Crosswalk" in annotation_filename:
+    elif "Lane Marking - Crosswalk" in annotation_filename:
         class_id = 8
     elif "Banner" in annotation_filename:
         class_id = 9
     elif "Bench" in annotation_filename:
         class_id = 10
-    elif "Bike_Rack" in annotation_filename:
+    elif "Bike Rack" in annotation_filename:
         class_id = 11
     elif "Billboard" in annotation_filename:
         class_id = 12
-    elif "Catch_Basin" in annotation_filename:
+    elif "Catch Basin" in annotation_filename:
         class_id = 13
-    elif "CCTV_Camera" in annotation_filename:
+    elif "CCTV Camera" in annotation_filename:
         class_id = 14
-    elif "Fire_Hydrant" in annotation_filename:
+    elif "Fire Hydrant" in annotation_filename:
         class_id = 15
-    elif "Junction_Box" in annotation_filename:
+    elif "Junction Box" in annotation_filename:
         class_id = 16
     elif "Mailbox" in annotation_filename:
         class_id = 17
     elif "Manhole" in annotation_filename:
         class_id = 18
-    elif "Phone_Booth" in annotation_filename:
+    elif "Phone Booth" in annotation_filename:
         class_id = 19
-    elif "Street_Light" in annotation_filename:
+    elif "Street Light" in annotation_filename:
         class_id = 20
     elif "Pole" in annotation_filename:
         class_id = 21
-    elif "Traffic_Sign_Frame" in annotation_filename:
+    elif "Traffic Sign Frame" in annotation_filename:
         class_id = 22
-    elif "Utility_Pole" in annotation_filename:
+    elif "Utility Pole" in annotation_filename:
         class_id = 23
-    elif "Traffic_Light" in annotation_filename:
+    elif "Traffic Light" in annotation_filename:
         class_id = 24
-    elif "Traffic_Sign_(Back)" in annotation_filename:
+    elif "Traffic Sign (Back)" in annotation_filename:
         class_id = 25
-    elif "Traffic_Sign_(Front)" in annotation_filename:
+    elif "Traffic Sign (Front)" in annotation_filename:
         class_id = 26
-    elif "Trash_Can" in annotation_filename:
+    elif "Trash Can" in annotation_filename:
         class_id = 27
     elif "Bicycle" in annotation_filename:
         class_id = 28
@@ -338,13 +338,13 @@ def convert_class_id(annotation_filename):
         class_id = 32
     elif "Motorcycle" in annotation_filename:
         class_id = 33
-    elif "Other_Vehicle" in annotation_filename:
+    elif "Other Vehicle" in annotation_filename:
         class_id = 34
     elif "Trailer" in annotation_filename:
         class_id = 35
     elif "Truck" in annotation_filename:
         class_id = 36
-    elif "Wheeled_Slow" in annotation_filename:
+    elif "Wheeled Slow" in annotation_filename:
         class_id = 37
 
     return class_id
@@ -426,11 +426,11 @@ def readout_each_image(dataset_root, dir_name, seq):
     return json_div
 
 
-def main(dir_name):
+def main(dir_name, dataset_root, sample_type):
     dir_path = "../{}/instances".format(dir_name)
     files = os.listdir(dir_path)
 
-    dataset_root = "/home/boli/detectron2/mapillary"
+    # dataset_root = "/home/boli/detectron2/mapillary"
 
     # Pre-create needed image paths
     if (
@@ -450,7 +450,7 @@ def main(dir_name):
     }
 
     for idx in range(int(len(files))):
-        each_image_json = readout_each_image(dir_name, idx + 1)
+        each_image_json = readout_each_image(dataset_root, dir_name, idx + 1)
         combined_annotations["images"].extend(each_image_json["images"])
         combined_annotations["annotations"].extend(each_image_json["annotations"])
 
@@ -463,12 +463,14 @@ def main(dir_name):
         combined_annotations["annotations"][idx]["id"] = idx + 1
 
     combined_json_path = "{}/{}/instances_shape_{}2020.json".format(
-        dataset_root, dir_name, dir_name
+        dataset_root, dir_name, sample_type
     )
     with open(combined_json_path, "w") as fp:
         json.dump(combined_annotations, fp)
 
 
 if __name__ == "__main__":
-    main("training")
-    main("validation")
+    dir_name = "data/training/v2.0"
+    dataset_root = "/home/ec2-user/SageMaker"
+    main(dir_name, dataset_root, "training")
+    main(dir_name, dataset_root, "validation")
