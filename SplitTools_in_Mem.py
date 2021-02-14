@@ -432,6 +432,7 @@ def main(dir_name, dataset_root, sample_type):
         if f.endswith("png"):
             files.append(f)
 
+
     # Pre-create needed image paths
     if (
         os.path.exists("{}/{}/massive_annotations".format(dataset_root, dir_name))
