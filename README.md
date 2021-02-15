@@ -1,12 +1,8 @@
-# Transfer Mapillary Vistas Dataset to Coco format
+# Convert Mapillary Vistas Dataset to Coco format
 
-> This python script can help you transfer your MVD to coco format.
+> This python script helps you convert your mapillary vistas dataset to coco format.
 
-Currently we are working at MVD & ECCV 2018 competition, one of our plans is to transfer the dataset to coco format. And use currently prevalent frame implementation(mask RCNN) to train our model.
-
-## Brief Introduction
-
-`SplitTools.py` finds `label x instances` tuple in each given `instance` image.
+# Brief Introduction
 
 Here is a given `instance` image. Label info is embeded into each pixel value.
 
@@ -15,23 +11,11 @@ pixel / 256 # the value represents this pixel belongs to which label.
 pixel % 256 # the value represents this pixel is the i-th instance of its label.
 ```
 
-## Examples
+# Download Link
 
-Here we have a `instance` image.
+You can download the trainining and validation set from the following links.
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1ft2l171m14j31kw16o0tr.jpg)
+[1] [Training Set](https://drive.google.com/file/d/1JFJGM1fMB07fvdgRXQqGKqXaoEDh4DL9/view?usp=sharing)
 
-we can split it according to `label x instance` relations.
-
-`1_41_0_Manhole` is the location about the 0-th Manhole(Manhole's label_id is 41).
-
-![](https://ws2.sinaimg.cn/large/006tKfTcly1ft2l70ay7bj31je144760.jpg)
-
-And then we use pycococreator tools to transfer them into json format, which is fit for coco data format.
-
-I put the tools in `Image2Json` directory, and also you can download the tools here: [Pycococreator tools](https://github.com/waspinator/pycococreator)
-
-
-
-
+[2] [Validation Set](https://drive.google.com/file/d/1ZJWNb-u9JQgBjKknT2RtNurtlnqvPFgf/view?usp=sharing)
 
